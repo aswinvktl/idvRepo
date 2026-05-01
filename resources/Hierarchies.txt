@@ -1,0 +1,70 @@
+Hierarchies
+Foreword
+
+Please keep in mind that as you progress through the practicals, you are building your way towards your coursework submissions. You must attend the practical sessions to receive feedback and guidance on how to improve your code. In the same spirit, please ask for help if you get stuck at any point. JavaScript and D3 have steep learning curves and you shouldn't leave things to the last minute.
+
+You should keep working on the same project started in the previous practicals. If you have not completed previous practicals please do so before starting this one.
+
+In this practical, we will make new visualisation modules for hierarchical data: Circle Packs and Treemaps.
+
+You should consult the d3-hierarchy module documentation as much as possible.
+Objectives
+
+By the end of this practical you should be able to:
+
+    Use D3 hierarchies to generate hierarchical data;
+    Visualise hierarchical data as a Circle Pack;
+    Visualise hierarchical data as a Treemap.
+
+Hierarchical Data
+
+The file french_districts.csv provides a breakdown of the French population in 2017 by district, department and region. The French administration divides the territory into regions, which contain departments, which contain districts, which contain cities. This dataset was obtained from the INSEE website (French national institute for statistics and economic studies).
+
+In your main.js file:
+
+    Load this dataset with the d3.csv method.
+    Using d3.group, create a nested map of the dataset. The map should have the format region -> department -> districts.
+    Using d3.hierarchy, create two hierarchies from this grouped dataset:
+        One hierarchyPop, where the value of each node should be the sum of the population under that node.
+        One hierarchyCity, where the value of each node should be the sum of the number of cities under that node.
+
+Hint:
+
+    Check the .sum method of hierarchies.
+
+Circle Packs
+
+In your main.js file, create a svg where the circle pack will be rendered (you can clear this later for your coursework).
+
+Using the d3.pack layout generator, render a circle packing of hierarchyPop.
+
+Hints:
+
+    You should use selections of circles in your svg.
+    You should bind the descendants of your hierarchy.
+
+Treemaps
+
+In your main.js file, create a svg where the tree map will be rendered (you can clear this later for your coursework).
+
+Using the d3.treemap layout generator, render a treemap of hierarchyCity.
+
+Hints:
+
+    You should use selections of rects in your svg.
+    You should bind the leaves of your hierarchy.
+
+Wrapping Up
+
+Before leaving this practical, check that you have understood the following points:
+
+    Using D3 hierarchies to generate hierarchical data.
+    Using the pack layout to render circle packs.
+    Using the treemap layout to render treemaps.
+
+Self-Study Activity
+
+If you have not completed this practical, please do so by the next session. You should then have a look at the activity below.
+
+Look at how you would integrate either the circle pack or treemap for Coursework 2.
+

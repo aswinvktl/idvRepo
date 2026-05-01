@@ -1,0 +1,72 @@
+Maps
+Foreword
+
+Please keep in mind that as you progress through the practicals, you are building your way toward your coursework submissions. You must attend the practical sessions to receive feedback and guidance on how to improve your code. In the same spirit, please ask for help if you get stuck at any point. JavaScript and D3 have steep learning curves and you shouldn't leave things to the last minute.
+
+You should keep working on the same project started in the previous practicals. If you have not completed previous practicals please do so before starting this one.
+
+In this practical, we will look at a new visualisation module, UK Maps, and enhance it to superimpose bubbles.
+Objectives
+
+By the end of this practical you should be able to:
+
+    Use D3 projections and paths to render geographical shapes;
+    Use D3 projections to superimpose marks on a map.
+
+UK Map Module
+
+First, download these three files from the Moodle page and add them to your project:
+
+    topojson.v3.min.js, to add to your libs folder. Remember to load it to your page: <script src="libs/topojson.v3.min.js"></script>.
+    uk.js, to add to your libs folder. It contains the geographical shape data for the UK. It gets imported by the next file automatically.
+    UKMap.js, to add your scripts folder. We will mainly work with this file in this practical. It contains your first template for rendering a UK map.
+
+Your first task is to review UKMap.js. Make sure that you can answer the following questions:
+
+    How it loads geographical data?
+    What are the different types of geographical data?
+    How are the projection and path instantiated?
+    How it renders the different types of geographical data?
+
+Adding Bubbles
+
+Your task is then to enhance this map visualisation module to make it display superimposed bubbles. In this practical, we will be showing random values associated with tourist attractions in UK:
+
+let attractions = [
+    {name:'Stonehenge', lat:51.1788, lon:-1.8261, value:64},
+    {name:'Eden Project', lat:50.3619, lon:-4.7447, value:21},
+    {name:'Canterbury Cathedral', lat:51.2798, lon:1.0828, value:36},
+    {name:'Loch Ness', lat:57.3229, lon:-4.4244, value:58},
+    {name:'Lake District', lat:54.5772, lon:-2.7975, value:47}
+]
+
+Add a function render in UKMap.js such that the following code displays a bubble per attraction on the map, and the bubbles are sized by the property value.
+
+let map = new UKMap('div#map', 600, 600);
+map.render(attractions);
+
+Some help:
+
+    You will need a scale to size the bubbles.
+    Check how the city labels are displayed on the map.
+
+Interactivity
+
+You should then further develop this UK map module to have:
+
+    Mouse over/out/click interaction on the bubbles, including external callbacks;
+    Tooltips on the bubbles.
+
+Wrapping Up
+
+Before leaving this practical, check that you have understood the following points:
+
+    Using D3 projections and paths to render maps.
+    Adding zoom to a map.
+    Using projections to superimpose bubbles on a map.
+
+Self-Study Activity
+
+If you have not completed this practical, please do so by the next session. You should then have a look at the activity below.
+
+You can then look at how you would integrate such a Map for Coursework 2.
