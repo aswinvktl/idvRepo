@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renewable Energy Dashboard</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="page">
+        <header class="topbar">
+            <div>
+                <h1>Renewable Energy Dashboard</h1>
+            </div>
+        </header>
+
+        <main class="dashboard">
+            <section class="panel panel-bar">
+                <div id="bar-chart"></div>
+            </section>
+
+            <section class="panel panel-line">
+                <div id="line-chart"></div>
+            </section>
+
+            <section class="panel panel-scatter">
+                <div id="scatter-plot"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="libs/d3.v7.min.js"></script>
+    <script src="scripts/barChart.js"></script>
+    <script src="scripts/lineChart.js"></script>
+    <script src="scripts/scatterPlot.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>
