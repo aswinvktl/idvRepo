@@ -1,37 +1,70 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Renewable Energy Dashboard</title>
+    <title>UK Renewable Energy Dashboard</title>
+
+    <!-- ── Libraries — ORDER MATTERS ────────────────────────
+         D3 must load before our scripts use it.
+         Popper must load before Tippy (Tippy depends on Popper).
+         All libs load before our own scripts.
+    ──────────────────────────────────────────────────────── -->
+    <script src="libs/d3.v7.min.js"></script>
+    <script src="libs/topojson.v3.min.js"></script>
+    <script src="libs/popper.v2.min.js"></script>
+    <script src="libs/tippy.v6.min.js"></script>
+
+    <!-- Our stylesheet -->
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-    <div class="page">
-        <header class="topbar">
-            <div>
-                <h1>Renewable Energy Dashboard</h1>
-            </div>
+
+    <!-- ── Dashboard wrapper ─────────────────────────────────
+         CSS Grid is applied to this element in main.css.
+         It controls the overall page layout.
+    ──────────────────────────────────────────────────────── -->
+    <div id="dashboard">
+
+        <!-- Header bar — title + subtitle -->
+        <header>
+            <h1>UK Renewable Energy Dashboard</h1>
         </header>
 
-        <main class="dashboard">
-            <section class="panel panel-bar">
-                <div id="bar-chart"></div>
-            </section>
+        <!-- Top row: line chart on left, treemap on right -->
+        <div id="top-row">
 
-            <section class="panel panel-line">
-                <div id="line-chart"></div>
-            </section>
+            <!-- Line chart: energy sources over time + brush -->
+            <div id="line-chart-container">
+                <!-- drawLineChart() in lineChart.js appends an svg here -->
+            </div>
 
-            <section class="panel panel-scatter">
-                <div id="scatter-plot"></div>
-            </section>
-        </main>
-    </div>
+            <!-- Treemap: hierarchical breakdown of energy sources -->
+            <div id="treemap-container">
+                <!-- drawTreemap() in treemap.js appends an svg here -->
+            </div>
 
-    <script src="libs/d3.v7.min.js"></script>
-    <script src="scripts/barChart.js"></script>
-    <script src="scripts/lineChart.js"></script>
-    <script src="scripts/scatterPlot.js"></script>
-    <script src="scripts/main.js"></script>
+        </div><!-- end #top-row -->
+
+        <!-- Bottom row: bar chart full width -->
+        <div id="bottom-row">
+
+            <!-- Bar chart: industry sector totals -->
+            <div id="bar-chart-container">
+                <!-- drawBarChart() in barChart.js appends an svg here -->
+            </div>
+
+        </div><!-- end #bottom-row -->
+
+    </div><!-- end #dashboard -->
+
+    <!-- ── Our script ────────────────────────────────────────
+         type="module" enables ES6 import/export between files.
+         main.js imports lineChart.js, treemap.js, barChart.js.
+         Only ONE script tag needed — main.js pulls in the rest.
+         Must be at the bottom so the divs above exist first.
+    ──────────────────────────────────────────────────────── -->
+    <script type="module" src="scripts/main.js"></script>
+
 </body>
 </html>
